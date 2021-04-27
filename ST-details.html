@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Smart Thermostat</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicons/favicon-32x32.png" rel="icon" sizes="32x32">
+  <link href="assets/img/favicons/favicon-16x16.png" rel="icon" sizes="16x16">
+  <link href="assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+  <link rel="manifest" href="assets/img/favicons/site.webmanifest">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Font Awesome Kit Code -->
+  <script src="https://kit.fontawesome.com/f24fddb5a2.js" crossorigin="anonymous"></script>
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YC3L1Q5S9R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YC3L1Q5S9R');
+  </script>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="detail fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">Dylan's Portfolio</a></h1>
+      <!-- Uncomment below when I finish logo-->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+          <li><a class="nav-link scrollto" href="index.html#skills">Skills</a></li>
+          <li class="dropdown"><a href="index.html#projects"><span>Projects</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="ST-details.html">Smart Home Thermostat</a></li>
+              <li><a href="#">RBA Program</a></li>
+              <li><a href="#">TTPMS</a></li>
+              <li><a href="#">HorseBit</a></li>
+              <li><a href="#">FSAE MATLAB</a></li>
+              <li><a href="#">Web Dev.</a></li>
+            </ul>
+          </li>
+
+          <li><a class="nav-link scrollto " href="#blog">Blog</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <div class="intro intro-single route bg-image" style="background-image: url(assets/img/heroo-bg.jpg)">
+    <!-- <div class="overlay-mf"></div> -->
+    <!-- <div class="intro-content display-table">
+      <div class="table-cell">
+        <div class="container"> -->
+          <!-- <h2 class="intro-title mb-4">Portfolio Details</h2> -->
+          <!-- <ol class="breadcrumb d-flex justify-content-center">
+            <li class="breadcrumb-item">
+              <a href="#">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Portfolio Details</li>
+          </ol> -->
+        <!-- </div>
+      </div>
+    </div> -->
+  </div>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper-container">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio-details-1.jpg" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio-details-2.jpg" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio-details-3.jpg" alt="">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-description">
+              <h2>Smart Home Thermostat</h2>
+              <p>
+                After moving houses and no longer having a Nest Thermostat, I wanted to try my hand at creating an
+                equivalent product. There are still many features I am working on adding, but the current version
+                has been operating reliably for several months.
+                
+              </p>
+            </div>
+
+            <div class="portfolio-info">
+              <h3>Quick Specs</h3>
+              <ul>
+                <li><strong>Furnace Type</strong>: Two-wire Systems</li>
+                <li><strong>Microprocessor</strong>: ESP8266</li>
+                <li><strong>Network Protocol</strong>: MQTT</li>
+                <li><strong>App Compatibility</strong>: Android (iOS coming soon)</li>
+                <li><strong>Code Repository</strong>: <a href="https://github.com/djohnjames"><i class="bi bi-github" style="font-size: 1rem;"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="portfolio-info">
+              <h3>Design Requirements</h3>
+                <ul>
+                  <!-- https://stackoverflow.com/questions/8543859/css-vertical-alignment-text-inside-li#:~:text=Inorder%20to%20make%20vertical%2Dalign,make%20your%20text%20vertically%20middle. -->
+                  <li><i class="bi bi-check2-circle fa-3x"></i><p><Strong>Keep air temperature at desired target with +- 0.5C of accuracy.</Strong> Supporting text about 
+                    the requirment or how it will or is planning to be fufuilling </p></li>
+                    <br>
+                  <li><i class="bi bi-circle"></i><strong>Ability to override heating control wirelessly and physcially.</strong> Override ability for troubleshooting and</li>
+                  <li><strong>Network Protocol</strong>: MQTT</li>
+                  <li><strong>App Compatibility</strong>: Android (iOS coming soon)</li>
+                  <li><strong>Code Repository</strong>: <a href="https://github.com/djohnjames"><i class="bi bi-github" style="font-size: 1rem;"></i></a></li>
+                </ul>
+      
+      
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="portfolio-info">
+              <h3>Enclosure</h3>
+              <model-viewer src="assets/glb/FrontPlate.glb" auto-rotate="" camera-controls="" ar-status="not-presenting"> </model-viewer>
+
+              <!-- <model-viewer src="assets/glb/FrontPlate.glb" camera-controls exposure="1" shadow-intensity="0">
+
+                <div class="progress-bar hide" slot="progress-bar">
+                    <div class="update-bar"></div>
+                </div>
+                <button slot="ar-button" id="ar-button">
+                    View in your space
+                </button>
+                <div id="ar-prompt">
+                    <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+                </div> -->
+            <!-- </model-viewer> -->
+            
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  
+  <!-- 3D Model Viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

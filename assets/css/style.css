@@ -92,7 +92,7 @@ a:hover {
 }
 
 .overlay-mf {
-  background-color: #0078ff;
+  background-color: #232323;
 }
 
 .overlay-mf {
@@ -468,6 +468,11 @@ a:hover {
 
 #header.header-scrolled {
   background: rgba(0, 0, 0, 0.9);
+  padding: 12px 0;
+}
+
+#header.detail{
+  background-color: rgba(0, 0, 0, 0.9);
   padding: 12px 0;
 }
 
@@ -987,7 +992,7 @@ a:hover {
 # Portfolio Details
 --------------------------------------------------------------*/
 .portfolio-details {
-  padding-top: 40px;
+  padding-top: 100px;
 }
 
 .portfolio-details .portfolio-details-slider img {
@@ -1019,8 +1024,8 @@ a:hover {
 .portfolio-details .portfolio-info h3 {
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
   border-bottom: 1px solid #eee;
 }
 
@@ -1028,6 +1033,12 @@ a:hover {
   list-style: none;
   padding: 0;
   font-size: 15px;
+  display: table;
+}
+
+.portfolio-details .portfolio-info il {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .portfolio-details .portfolio-info ul li + li {
