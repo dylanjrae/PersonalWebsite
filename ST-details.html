@@ -148,16 +148,105 @@
           <div class="col-lg-6">
             <div class="portfolio-info">
               <h3>Design Requirements</h3>
-                <ul>
-                  <!-- https://stackoverflow.com/questions/8543859/css-vertical-alignment-text-inside-li#:~:text=Inorder%20to%20make%20vertical%2Dalign,make%20your%20text%20vertically%20middle. -->
-                  <li><i class="bi bi-check2-circle fa-3x"></i><p><Strong>Keep air temperature at desired target with +- 0.5C of accuracy.</Strong> Supporting text about 
-                    the requirement or how it will or is planning to be fulfilling </p></li>
-                    <br>
-                  <li><i class="bi bi-circle"></i><strong>Ability to override heating control wirelessly and physcially.</strong> Override ability for troubleshooting and</li>
-                  <li><strong>Network Protocol</strong>: MQTT</li>
-                  <li><strong>App Compatibility</strong>: Android (iOS coming soon)</li>
-                  <li><strong>Code Repository</strong>: <a href="https://github.com/djohnjames"><i class="bi bi-github" style="font-size: 1rem;"></i></a></li>
-                </ul>
+                <div class="row gy-4">
+                  <div class="col-lg-1 col-xs-1">
+                    <i class="bi bi-check2-circle fa-2x"></i>
+                  </div>
+                  <div class="col-lg-11 col-xs-11">
+                    <p><Strong>Keep air temperature at desired target with +- 0.5C of accuracy. </Strong>Supporting text about 
+                    the requirement or how it will or is planning to be fulfilling</p>
+                  </div>
+                </div>
+
+                <div class="row gy-4">
+                  <div class="col-lg-1 col-xs-1">
+                    <i class="bi bi-check2-circle fa-2x"></i>
+                  </div>
+                  <div class="col-lg-11 col-xs-11">
+                    <p><strong>Ability to override heating control wirelessly and physically.</strong> Override ability for 
+                      troubleshooting and</p>
+                  </div>
+                </div>
+
+                <div class="row gy-4">
+                  <div class="col-lg-1 col-xs-1">
+                    <i class="bi bi-check2-circle fa-2x"></i>
+                  </div>
+                  <div class="col-lg-11 col-xs-11">
+                    <p><strong>Ability to interface with thermostat using a personal computer.</strong>
+                      Discuss app progress</p>
+                  </div>
+                </div>
+
+                <div class="row gy-4">
+                  <div class="col-lg-1 col-xs-1">
+                    <i class="bi bi-circle fa-2x"></i>
+                  </div>
+                  <div class="col-lg-11 col-xs-11">
+                    <p><strong>Ability to interface with thermostat using a device with iOS/Android.</strong>
+                      Discuss app progress</p>
+                  </div>
+                </div>
+
+                <div class="row gy-4">
+                  <div class="col-lg-1 col-xs-1">
+                    <i class="bi bi-circle fa-2x"></i>
+                  </div>
+                  <div class="col-lg-11 col-xs-11">
+                    <p><strong>Ability to s interface with thermostat using Google Home and Alexa.</strong>
+                      Discuss app progress</p>
+                  </div>
+                </div>
+
+                <div class="row gy-4">
+                  <div class="col-lg-1">
+                    <i class="bi bi-check2-circle fa-2x"></i>
+                  </div>
+                  <div class="col-lg-11 col-lg-1">
+                    <p><Strong>Be able to switch a furnace having a control signal of up to x.xA and 30VAC. </Strong> A two-wire 
+                      furnace system is controlled by opening or closing a control signal. When the furnace's control
+                      signal is closed the furnace detects flow of current and begins heating. By opening the control circuit
+                      the furnace ceases heating. The microprocessor needed to be able to open and close this control circuit. This
+                      functionality was implemented using a solid state relay (SSR). 
+                      <br><br>
+                      A SSR was chosen for the job because __ and ___. The control current for the SSR sources from the
+                      microprocessor and is set with a xx.Ohm resistor.</p>
+                  </div>
+                </div>
+                
+                <div class="row gy-4">
+                  <div class="col-lg-1">
+                    <i class="bi bi-check2-circle fa-2x"></i>
+                  </div>
+                  <div class="col-lg-11">
+                    <p><Strong>Have a battery life of 30 days. </Strong> This feature was implemented
+                    using a solid state relay (SSR). A SSR was chosen for the job because __ and ___. The control current for the SSR sources from the
+                    microprocessor and is set with a xx.Ohm resistor.</p>
+                  </div>
+
+                  <div class="col-lg-1">
+                    <i class="bi bi-circle fa-2x"></i>
+                  </div>
+                  <div class="col-lg-11">
+                    <p><Strong>Do not require an external power source. </Strong> This feature will be implemented by leaching current 
+                    off of the furnace's control wire. To complete this requirement the AC control signal will need to be converted to regulated 3.3V
+                    DC for the microprocessor. The first iteration will only leach current when the furnace is set to ON. This way, current will already
+                    be flowing through the furnace control wire and leaching current will have no affect on the operation of the furnace. However, when
+                    the furnace is not on, an external power source such as a battery will be required (which will require periodic charging).
+                    <br><br>
+                    The second iteration will not require the user to have to periodically charge the battery. Instead, the battery pack will be 
+                    slowly recharged by leaching a small amount of current off the control signal as required. Testing will be required to determine the
+                    maximum about of current that can be leached for charging without indirectly turning on the furnace. This method to complete this requirement 
+                    assumes this maximum current value is non zero.
+                    </p>
+                  </div>
+
+                </div>
+
+
+                   <!-- Should maybe grouo by hardware/software -->
+                   <!-- data analysis, energy savings, home/away feature, add thermostat to account
+                   -->
       
       
             </div>
@@ -173,7 +262,7 @@
               
               <model-viewer style="width:100%; height:300px;" src="assets/glb/BackPlate.glb" auto-rotate="" camera-controls="" ar-status="not-presenting"> </model-viewer>
               <p>This piece of the enclosure screws onto the wall. It was designed to use the screw holes of the old thermostat and to use a minimal amount of material to reduce
-                 cost and printing time. It also features a widened screw slot for the bottom screw, which allows the plate to be leveled before the lower screw is locked into position.</p>
+                 cost and printing time. It features a widened screw slot for the bottom screw, which allows the plate to be leveled before the lower screw is locked into position.</p>
 
             
 
