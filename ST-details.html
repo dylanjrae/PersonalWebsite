@@ -153,8 +153,18 @@
                     <i class="bi bi-check2-circle fa-2x"></i>
                   </div>
                   <div class="col-lg-11 col-xs-11">
-                    <p><Strong>Keep air temperature at desired target with +- 0.5C of accuracy. </Strong>Supporting text about 
-                    the requirement or how it will or is planning to be fulfilling</p>
+                    <p><Strong>Air temperature accuracy of <span>&#177;</span>0.5<span>&#8451;</span> within set temperature. </Strong>The first iteration used
+                      a simple analog temperature sensor that worked by outputting a voltage proportional to the temperature reading. While the analog temperature
+                      sensor was easy to implement for a first attempt, it was not ideal for a number of reasons. Firstly, the accuracy of an analog sensor could not be
+                      guaranteed without a calibration procedure. A digital sensor would not require this additional calibration process. Secondly, the board the ESP8266
+                      is mounted on only has one pin capable of an analog reading. I wanted to keep this pin free for future features such as being able to read the battery 
+                      level remaining in the battery pack. Finally, the resolution of readings from an analog sensor is limited by the 10-bit ADC onboard the NodeMCU. While
+                       the resolution is high enough for the intended application, I preferred to not have my design limited this way.
+                      <br><br>
+                      The digital sensor I choose is the LMT01 by Texas Instruments. The LMT01 was selected due to its low cost, 2-pin through-hole or SMD packaging, and 
+                      because it met the electrical specifications needed to work with the rest of the system. The LMT01 communicates with a pulse-count interface. I use a
+                      3904 BJT to pull the pulse's up to 3.3V or down to 0V for a cleaner signal for the ESP8266 to read.
+                      </p>
                   </div>
                 </div>
 
@@ -163,8 +173,11 @@
                     <i class="bi bi-check2-circle fa-2x"></i>
                   </div>
                   <div class="col-lg-11 col-xs-11">
-                    <p><strong>Ability to override heating control wirelessly and physically.</strong> Override ability for 
-                      troubleshooting and</p>
+                    <p><strong>Ability to override heating control wirelessly and physically.</strong> This functionality is important for testing and fail safe
+                    purposes. Physical override is implemented with a simple slide switch that closes the furnace control circuit. Wireless override is implemented
+                    with a MQTT channel that can be toggled to take precedence over all other processes (such as the scheduled and user set temperature) to force the
+                    furnace into ON or OFF operation. When designing the device, I wanted to ensure the proper fail safe's were in place in the event of a hardware, 
+                    software, or power supply failure.</p>
                   </div>
                 </div>
 
@@ -173,8 +186,18 @@
                     <i class="bi bi-check2-circle fa-2x"></i>
                   </div>
                   <div class="col-lg-11 col-xs-11">
-                    <p><strong>Ability to interface with thermostat using a personal computer.</strong>
-                      Discuss app progress</p>
+                    <p><strong>Ability to interface with thermostat using a personal computer.</strong> This is a key requirement of the design, as I wanted to have the
+                      convenience of controlling the thermostat from all of my devices. Central to implementing this functionality, was the selection of the ESP8266 
+                      microprocessor used in the design. The ESP8266 has an integrated 2.4GHz Wi-Fi radio with a built in antenna. This device was chosen for it's low cost,
+                      wide availability of software development kit's (SDK) with extensive documentation, and power-saving capabilities. Currently the ESP8266 is mounted on a
+                      NodeMCU development board, and future development will have a purpose built PCB for reducing costs and improved power savings. Additionally, work will 
+                      be done to look into migrating to the next gen ESP32 chips.
+                      <br><br>
+                      To communicate with the ESP8266 the MQTT protocol is used. The MQTT is a standard messaging protocol for the Internet of Things (IoT) originally developed
+                      in the upstream oil and gas industry. This protocol is well suited for my design because it is extremely lightweight, scales well, and has numerous features
+                      that will be valuable for future development. Currently, the MQTT broker
+
+                      Discuss wifi, mqtt, eventual plans for back-end website</p>
                   </div>
                 </div>
 
@@ -209,8 +232,8 @@
                       the furnace ceases heating. The microprocessor needed to be able to open and close this control circuit. This
                       functionality was implemented using a solid state relay (SSR). 
                       <br><br>
-                      A SSR was chosen for the job because __ and ___. The control current for the SSR sources from the
-                      microprocessor and is set with a xx.Ohm resistor.</p>
+                      A SSR was chosen for the job for its reliability and fast switching speed. The control current for the SSR sources from the
+                      microprocessor and is set with a resistor. The model I choose is designed to use a DC control signal to switch an AC circuit.</p>
                   </div>
                 </div>
                 
@@ -219,11 +242,18 @@
                     <i class="bi bi-check2-circle fa-2x"></i>
                   </div>
                   <div class="col-lg-11">
-                    <p><Strong>Have a battery life of 30 days. </Strong> This feature was implemented
-                    using a solid state relay (SSR). A SSR was chosen for the job because __ and ___. The control current for the SSR sources from the
-                    microprocessor and is set with a xx.Ohm resistor.</p>
+                    <p><Strong>Have a battery life of 30 days. </Strong> The ESP8266 microprocessor draws a maximum of 170mA but typically uses 70mA during
+                    normal operation. Additionally, the microprocessor has functionality to implement a variety of sleep modes to reduce power consumption. I utilize
+                    the "deep-sleep" functionality which reduces current draw to a reported 20<span>&#181;</span>A. The deep-sleep functionality works by stopping
+                    all non-essential processes and simply operating a timer (set by the user). Once the timer expires, the D0 pin is set to high. By connecting to D0
+                    pin to the RST pin, the device can be woken into a normal operating mode. Eventually, the user interface for the thermostat will have the 
+                    functionality for the user to be able to set the sleep time to give users more control over the device. Since the majority of the power is drawn 
+                    by the Wi-Fi radio, future software versions will be optimized to reduce Wi-Fi use.
+                    </p>
                   </div>
+                </div>
 
+                <div class="row gy-4">
                   <div class="col-lg-1">
                     <i class="bi bi-circle fa-2x"></i>
                   </div>
@@ -240,13 +270,12 @@
                     assumes this maximum current value is non zero.
                     </p>
                   </div>
-
                 </div>
+                
 
-
-                   <!-- Should maybe grouo by hardware/software -->
-                   <!-- data analysis, energy savings, home/away feature, add thermostat to account
-                   -->
+                <!-- Should maybe grouo by hardware/software -->
+                <!-- data analysis, energy savings, home/away feature, add thermostat to account
+                -->
       
       
             </div>
