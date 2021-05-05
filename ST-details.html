@@ -104,15 +104,23 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio-details-1.jpg" alt="">
+                  <img src="assets/img/enclosure2.jpg" alt="">
+                </div>
+
+                <!-- <div class="swiper-slide">
+                  <img src="assets/img/enclosure1.jpg" alt="">
+                </div> -->
+
+                <div class="swiper-slide">
+                  <img src="assets/img/nodeMCU.jpg" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio-details-2.jpg" alt="">
+                  <img src="assets/img/soldered_board.jpg" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio-details-3.jpg" alt="">
+                  <img src="assets/img/breadboard_testing.jpg" alt="">
                 </div>
 
               </div>
@@ -195,9 +203,11 @@
                       <br><br>
                       To communicate with the ESP8266 the MQTT protocol is used. The MQTT is a standard messaging protocol for the Internet of Things (IoT) originally developed
                       in the upstream oil and gas industry. This protocol is well suited for my design because it is extremely lightweight, scales well, and has numerous features
-                      that will be valuable for future development. Currently, the MQTT broker
+                      that will be valuable for future development. I am experimenting using a public MQTT broker, as well as my own running on a personal computer. Messages are currently
+                      sent with QoS 0 through well organized topics.
 
-                      Discuss wifi, mqtt, eventual plans for back-end website</p>
+                      Eventually, I hope to have a back-end system that will control the MQTT broker. This system would be responsible for storing historical temperature and user data in an SQL database
+                      as well as performing analytics to help users reduce their energy use Discuss wifi, mqtt, eventual plans for back-end website</p>
                   </div>
                 </div>
 
