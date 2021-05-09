@@ -96,15 +96,13 @@
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
-
         <div class="row gy-4">
-
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper-container">
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="assets/img/enclosure2.jpg" alt="">
+                  <img src="assets/img/enclosure.jpg" alt="">
                 </div>
 
                 <!-- <div class="swiper-slide">
@@ -153,168 +151,205 @@
         </div>
         
         <div class="row gy-4">
-          <div class="col-lg-6">
-            <div class="portfolio-info">
-              <h3>Design Requirements</h3>
-                <div class="row gy-4">
-                  <div class="col-lg-1 col-xs-1">
-                    <i class="bi bi-check2-circle fa-2x"></i>
-                  </div>
-                  <div class="col-lg-11 col-xs-11">
-                    <p><Strong>Air temperature accuracy of <span>&#177;</span>0.5<span>&#8451;</span> within set temperature. </Strong>The first iteration used
-                      a simple analog temperature sensor that worked by outputting a voltage proportional to the temperature reading. While the analog temperature
-                      sensor was easy to implement for a first attempt, it was not ideal for a number of reasons. Firstly, the accuracy of an analog sensor could not be
-                      guaranteed without a calibration procedure. A digital sensor would not require this additional calibration process. Secondly, the board the ESP8266
-                      is mounted on only has one pin capable of an analog reading. I wanted to keep this pin free for future features such as being able to read the battery 
-                      level remaining in the battery pack. Finally, the resolution of readings from an analog sensor is limited by the 10-bit ADC onboard the NodeMCU. While
-                       the resolution is high enough for the intended application, I preferred to not have my design limited this way.
-                      <br><br>
-                      The digital sensor I choose is the LMT01 by Texas Instruments. The LMT01 was selected due to its low cost, 2-pin through-hole or SMD packaging, and 
-                      because it met the electrical specifications needed to work with the rest of the system. The LMT01 communicates with a pulse-count interface. I use a
-                      3904 BJT to pull the pulse's up to 3.3V or down to 0V for a cleaner signal for the ESP8266 to read.
-                      </p>
-                  </div>
-                </div>
-
-                <div class="row gy-4">
-                  <div class="col-lg-1 col-xs-1">
-                    <i class="bi bi-check2-circle fa-2x"></i>
-                  </div>
-                  <div class="col-lg-11 col-xs-11">
-                    <p><strong>Ability to override heating control wirelessly and physically.</strong> This functionality is important for testing and fail safe
-                    purposes. Physical override is implemented with a simple slide switch that closes the furnace control circuit. Wireless override is implemented
-                    with a MQTT channel that can be toggled to take precedence over all other processes (such as the scheduled and user set temperature) to force the
-                    furnace into ON or OFF operation. When designing the device, I wanted to ensure the proper fail safe's were in place in the event of a hardware, 
-                    software, or power supply failure.</p>
-                  </div>
-                </div>
-
-                <div class="row gy-4">
-                  <div class="col-lg-1 col-xs-1">
-                    <i class="bi bi-check2-circle fa-2x"></i>
-                  </div>
-                  <div class="col-lg-11 col-xs-11">
-                    <p><strong>Ability to interface with thermostat using a personal computer.</strong> This is a key requirement of the design, as I wanted to have the
-                      convenience of controlling the thermostat from all of my devices. Central to implementing this functionality, was the selection of the ESP8266 
-                      microprocessor used in the design. The ESP8266 has an integrated 2.4GHz Wi-Fi radio with a built in antenna. This device was chosen for it's low cost,
-                      wide availability of software development kit's (SDK) with extensive documentation, and power-saving capabilities. Currently the ESP8266 is mounted on a
-                      NodeMCU development board, and future development will have a purpose built PCB for reducing costs and improved power savings. Additionally, work will 
-                      be done to look into migrating to the next gen ESP32 chips.
-                      <br><br>
-                      To communicate with the ESP8266 the MQTT protocol is used. The MQTT is a standard messaging protocol for the Internet of Things (IoT) originally developed
-                      in the upstream oil and gas industry. This protocol is well suited for my design because it is extremely lightweight, scales well, and has numerous features
-                      that will be valuable for future development. I am experimenting using a public MQTT broker, as well as my own running on a personal computer. Messages are currently
-                      sent with QoS 0 through well organized topics.
-
-                      Eventually, I hope to have a back-end system that will control the MQTT broker. This system would be responsible for storing historical temperature and user data in an SQL database
-                      as well as performing analytics to help users reduce their energy use Discuss wifi, mqtt, eventual plans for back-end website</p>
-                  </div>
-                </div>
-
-                <div class="row gy-4">
-                  <div class="col-lg-1 col-xs-1">
-                    <i class="bi bi-circle fa-2x"></i>
-                  </div>
-                  <div class="col-lg-11 col-xs-11">
-                    <p><strong>Ability to interface with thermostat using a device with iOS/Android.</strong>
-                      Discuss app progress</p>
-                  </div>
-                </div>
-
-                <div class="row gy-4">
-                  <div class="col-lg-1 col-xs-1">
-                    <i class="bi bi-circle fa-2x"></i>
-                  </div>
-                  <div class="col-lg-11 col-xs-11">
-                    <p><strong>Ability to s interface with thermostat using Google Home and Alexa.</strong>
-                      Discuss app progress</p>
-                  </div>
-                </div>
-
-                <div class="row gy-4">
-                  <div class="col-lg-1">
-                    <i class="bi bi-check2-circle fa-2x"></i>
-                  </div>
-                  <div class="col-lg-11 col-lg-1">
-                    <p><Strong>Be able to switch a furnace having a control signal of up to x.xA and 30VAC. </Strong> A two-wire 
-                      furnace system is controlled by opening or closing a control signal. When the furnace's control
-                      signal is closed the furnace detects flow of current and begins heating. By opening the control circuit
-                      the furnace ceases heating. The microprocessor needed to be able to open and close this control circuit. This
-                      functionality was implemented using a solid state relay (SSR). 
-                      <br><br>
-                      A SSR was chosen for the job for its reliability and fast switching speed. The control current for the SSR sources from the
-                      microprocessor and is set with a resistor. The model I choose is designed to use a DC control signal to switch an AC circuit.</p>
-                  </div>
-                </div>
-                
-                <div class="row gy-4">
-                  <div class="col-lg-1">
-                    <i class="bi bi-check2-circle fa-2x"></i>
-                  </div>
-                  <div class="col-lg-11">
-                    <p><Strong>Have a battery life of 30 days. </Strong> The ESP8266 microprocessor draws a maximum of 170mA but typically uses 70mA during
-                    normal operation. Additionally, the microprocessor has functionality to implement a variety of sleep modes to reduce power consumption. I utilize
-                    the "deep-sleep" functionality which reduces current draw to a reported 20<span>&#181;</span>A. The deep-sleep functionality works by stopping
-                    all non-essential processes and simply operating a timer (set by the user). Once the timer expires, the D0 pin is set to high. By connecting to D0
-                    pin to the RST pin, the device can be woken into a normal operating mode. Eventually, the user interface for the thermostat will have the 
-                    functionality for the user to be able to set the sleep time to give users more control over the device. Since the majority of the power is drawn 
-                    by the Wi-Fi radio, future software versions will be optimized to reduce Wi-Fi use.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="row gy-4">
-                  <div class="col-lg-1">
-                    <i class="bi bi-circle fa-2x"></i>
-                  </div>
-                  <div class="col-lg-11">
-                    <p><Strong>Do not require an external power source. </Strong> This feature will be implemented by leaching current 
-                    off of the furnace's control wire. To complete this requirement the AC control signal will need to be converted to regulated 3.3V
-                    DC for the microprocessor. The first iteration will only leach current when the furnace is set to ON. This way, current will already
-                    be flowing through the furnace control wire and leaching current will have no affect on the operation of the furnace. However, when
-                    the furnace is not on, an external power source such as a battery will be required (which will require periodic charging).
-                    <br><br>
-                    The second iteration will not require the user to have to periodically charge the battery. Instead, the battery pack will be 
-                    slowly recharged by leaching a small amount of current off the control signal as required. Testing will be required to determine the
-                    maximum about of current that can be leached for charging without indirectly turning on the furnace. This method to complete this requirement 
-                    assumes this maximum current value is non zero.
-                    </p>
-                  </div>
-                </div>
-                
-
-                <!-- Should maybe grouo by hardware/software -->
-                <!-- data analysis, energy savings, home/away feature, add thermostat to account
-                -->
-      
-      
-            </div>
-          </div>
-
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <div class="portfolio-info">
               <h3>Enclosure</h3>
-              <model-viewer style="width:100%; height:300px;" src="assets/glb/FrontPlate2.0.glb" auto-rotate="" camera-controls="" ar-status="not-presenting"> </model-viewer>
-              <p>The above model is the front plate of the enclosure. The front panel is curved for aesthetics and features an engraved graphic. Behind the front panel is a slot
-              that holds a standard 8,000-10,000mAh battery pack. The side rails have grooves that allow the enclosure to slide over the furnace wires and into a resting position
-              on the back plate.</p>
-              
-              <model-viewer style="width:100%; height:300px;" src="assets/glb/BackPlate.glb" auto-rotate="" camera-controls="" ar-status="not-presenting"> </model-viewer>
-              <p>This piece of the enclosure screws onto the wall. It was designed to use the screw holes of the old thermostat and to use a minimal amount of material to reduce
-                 cost and printing time. It features a widened screw slot for the bottom screw, which allows the plate to be leveled before the lower screw is locked into position.</p>
-
-            
-
+              <div class="row gy-4 justify-content-evenly">
+                <div class="col-lg-5">
+                  <model-viewer style="width:100%; height:300px; margin: auto;" src="assets/glb/FrontPlate2.0.glb" auto-rotate="" camera-controls="" ar-status="not-presenting"> </model-viewer>
+                  <p>The above model is the front plate of the enclosure. The front panel is curved for aesthetics and features an engraved graphic. Behind the front panel is a slot
+                  that holds a standard 8,000-10,000mAh battery pack. The side rails have grooves that allow the enclosure to slide over the furnace wires and into a resting position
+                  on the back plate.</p>
+                </div>
+                <div class="col-lg-5">
+                  <model-viewer style="width:100%; height:300px; margin: auto;" src="assets/glb/BackPlate.glb" auto-rotate="" camera-controls="" ar-status="not-presenting"> </model-viewer>
+                  <p>This piece of the enclosure screws onto the wall. It was designed to use the screw holes of the old thermostat and to use a minimal amount of material to reduce
+                    cost and printing time. It features a widened screw slot for the bottom screw, which allows the plate to be leveled before the lower screw is locked into position.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
+        <!--Have an update post at the bottom about ssh onto the raspberry pie to set a static ip and set up a broker on it-->
+        <div class="row gy-4">
+          <div class="col-lg-12">
+            <div class="portfolio-info">
+              <h3>Design Requirements</h3>
 
-      </div>
+                <div class="row gy-4">
+                  <div class="col-lg-6">
+                    <div class="row">
+                      <div class="col-lg-1">
+                        <i class="bi bi-check2-circle fa-2x"></i>
+                      </div>
+                      <div class="col-lg-10">
+                        <h4>Air temperature accuracy of <span>&#177;</span>0.5<span>&#8451;</span> within set temperature.</h4>
+                        <p>The first iteration used a simple analog temperature sensor that worked by outputting a voltage proportional to the temperature reading. While the analog temperature
+                          sensor was easy to implement for a first attempt, it was not ideal for a number of reasons. Firstly, the accuracy of an analog sensor could not be
+                          guaranteed without a calibration procedure. A digital sensor would not require this additional calibration process. Secondly, the board the ESP8266
+                          is mounted on only has one pin capable of an analog reading. I wanted to keep this pin free for future features such as being able to read the battery 
+                          level remaining in the battery pack. Finally, the resolution of readings from an analog sensor is limited by the 10-bit ADC onboard the NodeMCU. While
+                           the resolution is high enough for the intended application, I preferred to not have my design limited this way.
+                          <br><br>
+                          The digital sensor I choose is the LMT01 by Texas Instruments. The LMT01 was selected due to its low cost, 2-pin through-hole or SMD packaging, and 
+                          because it met the electrical specifications needed to work with the rest of the system. The LMT01 communicates with a pulse-count interface. I use a
+                          3904 BJT to pull the pulse's up to 3.3V or down to near 0V for a cleaner signal for the ESP8266 to read.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="row">
+                      <div class = "col-lg-1">
+                        <i class="bi bi-check2-circle fa-2x"></i>
+                      </div>
+                      <div class = "col-lg-10">
+                        <h4>Ability to interface with thermostat using a personal computer.</h4>
+                        <p>This is a key requirement of the design, as I wanted to have the
+                          convenience of controlling the thermostat from all of my devices. Central to implementing this functionality, was the selection of the ESP8266 
+                          microprocessor used in the design. The ESP8266 has an integrated 2.4GHz Wi-Fi radio with a built in antenna. This device was chosen for it's low cost,
+                          wide availability of software development kit's (SDK) with extensive documentation, and power-saving capabilities. Currently the ESP8266 is mounted on a
+                          NodeMCU development board, and future development will have a purpose built PCB for reducing costs and improved power savings. Additionally, work will 
+                          be done to look into migrating to the next gen ESP32 chips.
+                          <br><br>
+                          To communicate with the ESP8266 the MQTT protocol is used. The MQTT is a standard messaging protocol for the Internet of Things (IoT) originally developed
+                          in the upstream oil and gas industry. This protocol is well suited for my design because it is extremely lightweight, scales well, and has numerous features
+                          that will be valuable for future development. I am experimenting using a public MQTT broker, as well as my own running on a personal computer. Messages are currently
+                          sent with QoS 0 through well organized topics.
+    
+                          Eventually, I hope to have a back-end system that will control the MQTT broker. This system would be responsible for storing historical temperature and user data in an SQL database
+                          as well as performing analytics to help users reduce their energy use Discuss wifi, mqtt, eventual plans for back-end website</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-      
+                <div class="row gy-4">
+                  <div class="col-lg-6">
+                    <div class="row">
+                      <div class="col-lg-1">
+                        <i class="bi bi-check2-circle fa-2x"></i>
+                      </div>
+                      <div class="col-lg-10">
+                        <h4>Ability to override heating control wirelessly and physically.</h4>
+                        <p>This functionality is important for testing and fail safe
+                          purposes. Physical override is implemented with a simple slide switch that closes the furnace control circuit. Wireless override is implemented
+                          with a MQTT channel that can be toggled to take precedence over all other processes (such as the scheduled and user set temperature) to force the
+                          furnace into ON or OFF operation. When designing the device, I wanted to ensure the proper fail safe's were in place in the event of a hardware, 
+                          software, or power supply failure.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="row">
+                      <div class = "col-lg-1">
+                        <i class="bi bi-circle fa-2x"></i>
+                      </div>
+                      <div class = "col-lg-10">
+                        <h4>Be able to switch a furnace having a control signal of up to x.xA and 30VAC. </h4>
+                        <p> A two-wire 
+                          furnace system is controlled by opening or closing a control signal. When the furnace's control
+                          signal is closed the furnace detects flow of current and begins heating. By opening the control circuit
+                          the furnace ceases heating. The microprocessor needed to be able to open and close this control circuit. This
+                          functionality was implemented using a solid state relay (SSR). 
+                          <br><br>
+                          A SSR was chosen for the job for its reliability and fast switching speed. The control current for the SSR sources from the
+                          microprocessor and is set with a resistor. The model I choose is designed to use a DC control signal to switch an AC circuit.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row gy-4">
+                  <div class="col-lg-6">
+                    <div class="row">
+                      <div class="col-lg-1">
+                        <i class="bi bi-check2-circle fa-2x"></i>
+                      </div>
+                      <div class="col-lg-10">
+                        <h4>Do not require an external power source.</h4>
+                        <p>This feature will be implemented by leaching current 
+                          off of the furnace's control wire. To complete this requirement the AC control signal will need to be converted to regulated 3.3V
+                          DC for the microprocessor. The first iteration will only leach current when the furnace is set to ON. This way, current will already
+                          be flowing through the furnace control wire and leaching current will have no affect on the operation of the furnace. However, when
+                          the furnace is not on, an external power source such as a battery will be required (which will require periodic charging).
+                          <br><br>
+                          The second iteration will not require the user to have to periodically charge the battery. Instead, the battery pack will be 
+                          slowly recharged by leaching a small amount of current off the control signal as required. Testing will be required to determine the
+                          maximum about of current that can be leached for charging without indirectly turning on the furnace. This method to complete this requirement 
+                          assumes this maximum current value is non zero.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="row">
+                      <div class = "col-lg-1">
+                        <i class="bi bi-circle fa-2x"></i>
+                      </div>
+                      <div class = "col-lg-10">
+                        <h4>Have a battery life of 30 days.</h4>
+                        <p>The ESP8266 microprocessor draws a maximum of 170mA but typically uses 70mA during
+                          normal operation. Additionally, the microprocessor has functionality to implement a variety of sleep modes to reduce power consumption. I utilize
+                          the "deep-sleep" functionality which reduces current draw to a reported 20<span>&#181;</span>A. The deep-sleep functionality works by stopping
+                          all non-essential processes and simply operating a timer (set by the user). Once the timer expires, the D0 pin is set to high. By connecting to D0
+                          pin to the RST pin, the device can be woken into a normal operating mode. Eventually, the user interface for the thermostat will have the 
+                          functionality for the user to be able to set the sleep time to give users more control over the device. Since the majority of the power is drawn 
+                          by the Wi-Fi radio, future software versions will be optimized to reduce Wi-Fi use.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row gy-4">
+                  <div class="col-lg-6">
+                    <div class="row">
+                      <div class="col-lg-1">
+                        <i class="bi bi-circle fa-2x"></i>
+                      </div>
+                      <div class="col-lg-10">
+                        <h4>Ability to interface with thermostat using a device with iOS/Android.</h4>
+                        <p> Discuss apps</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="row">
+                      <div class = "col-lg-1">
+                        <i class="bi bi-circle fa-2x"></i>
+                      </div>
+                      <div class = "col-lg-10">
+                        <h4>Ability to interface with thermostat using Google Home and Alexa.</h4>
+                        <p>Discuss how I will do this</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Should maybe grouo by hardware/software -->
+                <!-- data analysis, energy savings, home/away feature, add thermostat to account
+                -->
+            </div>
+          </div>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-12">
+            <div class="portfolio-info">
+              <h3>Updates and Progress</h3>
+              <div class="row-lg-12">
+                <strong>Started up the Raspberry Pi - May 6, 2021</strong>
+                <br>
+                <p>Today I set up a Raspberry Pi to act as the MQTT broker for the thermostat. First, I used ssh to connect to the Pi and
+                  give it a static IP so that my routers DHCP does not change it. This ensures all devices on the MQTT network always find
+                  the broker. Then I downloaded a MQTT broker onto the Pi and configured it to start up automatically on boot. After some testing
+                  with a MQTT client and the thermostat I verified it was working correctly. Next steps are to set up a SQL server on the Pi to log 
+                  data and to set up a python flask powered webserver for displaying the data.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- End of Container-->
     </section><!-- End Portfolio Details Section -->
-
   </main><!-- End #main -->
 
   <div id="preloader"></div>
