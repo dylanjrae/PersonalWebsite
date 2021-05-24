@@ -65,7 +65,7 @@
             </ul>
           </li>
 
-          <li><a class="nav-link scrollto " href="#blog">Blog</a></li>
+          <li><a class="nav-link scrollto " href="index.html#blog">Blog</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -92,10 +92,9 @@
   </div>
 
   <main id="main">
-
-    <!-- ======= Portfolio Details Section ======= -->
-    <section id="portfolio-details" class="portfolio-details">
-      <div class="container">
+    <div class="container">
+      <!-- ======= Portfolio Details Section ======= -->
+      <section id="portfolio-details" class="portfolio-details">
         <div class="row gy-4">
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper-container">
@@ -144,7 +143,7 @@
                 <li><strong>Microprocessor</strong>: ESP8266</li>
                 <li><strong>Network Protocol</strong>: MQTT</li>
                 <li><strong>App Compatibility</strong>: Android (iOS coming soon)</li>
-                <li><strong>Code Repository</strong>: <a href="https://github.com/djohnjames"><i class="bi bi-github" style="font-size: 1rem;"></i></a></li>
+                <li><strong>Code Repository</strong>: <a href="https://github.com/djohnjames/SmartThermostat" target="_blank" rel="noopener noreferrer"> <i class="bi bi-github" style="font-size: 1rem;"></i></a></li>
               </ul>
             </div>
           </div>
@@ -176,8 +175,7 @@
           <div class="col-lg-12">
             <div class="portfolio-info">
               <h3>Design Requirements</h3>
-
-                <div class="row gy-4">
+                <div class="row gy-4 mt-1">
                   <div class="col-lg-6">
                     <div class="row">
                       <div class="col-lg-1">
@@ -224,7 +222,7 @@
                   </div>
                 </div>
 
-                <div class="row gy-4">
+                <div class="row gy-4 mt-1">
                   <div class="col-lg-6">
                     <div class="row">
                       <div class="col-lg-1">
@@ -246,7 +244,7 @@
                         <i class="bi bi-circle fa-2x"></i>
                       </div>
                       <div class = "col-lg-10">
-                        <h4>Be able to switch a furnace having a control signal of up to x.xA and 30VAC. </h4>
+                        <h4>Be able to switch a furnace having a control signal of up to 600mA and 30VAC. </h4>
                         <p> A two-wire 
                           furnace system is controlled by opening or closing a control signal. When the furnace's control
                           signal is closed the furnace detects flow of current and begins heating. By opening the control circuit
@@ -260,7 +258,7 @@
                   </div>
                 </div>
                 
-                <div class="row gy-4">
+                <div class="row gy-4 mt-1">
                   <div class="col-lg-6">
                     <div class="row">
                       <div class="col-lg-1">
@@ -300,7 +298,7 @@
                   </div>
                 </div>
 
-                <div class="row gy-4">
+                <div class="row gy-4 mt-1">
                   <div class="col-lg-6">
                     <div class="row">
                       <div class="col-lg-1">
@@ -330,61 +328,63 @@
             </div>
           </div>
         </div>
+        <section id="updates">
+          <div class="row gy-4">
+            <div class="col-lg-12">
+              <div class="portfolio-info">
+                <h3>Updates and Progress</h3>
+                <div class="row-lg-12">
+                  <strong>LAMP Server on the Raspberry Pi - May 20, 2021</strong>
+                  <br>
+                  <p>I have installed a LAMP server on the Pi that will act as the back-end for the thermostat. Apache is used to server requests over HTTP/S. A MySQL
+                    database was installed and is currently being used to log data from the thermostat and will be used as the backend database moving forward. PHPMyAdmin
+                    was also installed and I played around with some of the features of this tool. <strong>Next I would like to build some sort of API that can be used by smart home
+                    devices (Google Home/Amazon Alexa), mobile apps (iOS/Android), and websites to view the temperature data, set schedules, and set new temperatures.</strong>
+                    <br><br>
+                    I also wrote a Python program that interfaces with the MQTT broker. The script receives the following data HERE every 
+                    XX secs from the thermostat and writes it into a MySQL database for processing to be handeled by different back-end program., 
+                    and controls the thermostat by sending ON or OFF signals. Incase the connection breaks(communication error), the 
+                    ESP also has the capability to control the thermostat to meet the set temperature onboard. 
+                    <br><br>
 
-        <div class="row gy-4">
-          <div class="col-lg-12">
-            <div class="portfolio-info">
-              <h3>Updates and Progress</h3>
-              <div class="row-lg-12">
-                <strong>LAMP Server on the Raspberry Pi - May 20, 2021</strong>
-                <br>
-                <p>I have installed a LAMP server on the Pi that will act as the back-end for the thermostat. Apache is used to server requests over HTTP/S. A MySQL
-                  database was installed and is currently being used to log data from the thermostat and will be used as the backend database moving forward. PHPMyAdmin
-                  was also installed and I played around with some of the features of this tool. <strong>Next I would like to build some sort of API that can be used by smart home
-                  devices (Google Home/Amazon Alexa), mobile apps (iOS/Android), and websites to view the temperature data, set schedules, and set new temperatures.</strong>
-                  <br><br>
-                  I also wrote a Python program that interfaces with the MQTT broker. The script receives the following data HERE every 
-                  XX secs from the thermostat and writes it into a MySQL database for processing to be handeled by different back-end program., 
-                  and controls the thermostat by sending ON or OFF signals. Incase the connection breaks(communication error), the 
-                  ESP also has the capability to control the thermostat to meet the set temperature onboard. 
-                  <br><br>
-
-                  Finally I started to play around with the Flask framework in Python for building a website for the thermostat. The stack for this project is already
-                  bigger than I thought it would get and there is still lots to do!
-                </p>
-              </div>
-              <div class="row-lg-12">
-                <strong>Power Saving Firmware Release - May 12, 2021</strong>
-                <br>
-                <p>I finally finished a new version of firmware to run the ESP8266 microcontroller. Here are some of the features I use to improve power efficiency:
-                </p>
-                <ul>
-                  <li>Not using a DHCP connection and using a static IP instead. This allows the ESP8266 to connect to WiFi quicker.</li>
-                  <li>Stopping the default functionality of writing connection details to flash memory. This saves 1.2 seconds.</li>
-                  <li>Storing the channel number (BSSID) so the ESP8266 does not need to scan for a network. This is done by saving the data in a struct
-                    and saving the data into RTC memory. Then on connection it checks if the data is correct and attempts to connect. If after 100 tries
-                    with no connection it will not use the stored BSSID data and scan. If after 600 tries the chip will go back into deep sleep.</li>
-                  <li>Only turning WiFi radio when I need to. This is just long enough to transmit current temperature data and listen for any incoming messages.</li>
-                  <li>When waking from deep sleep, I bypassed the default setting and keep the WiFi radio shut down until I need it to be on.</li>
-                </ul>
-                <p>Unfortunately I did not benchmark the power use before the update to verify my new design, however moving forward power usage and battery
-                  life will be tracked for future improvements.</p>
-              </div>
-              <div class="row-lg-12">
-                <strong>Started up the Raspberry Pi - May 6, 2021</strong>
-                <br>
-                <p>Today I set up a Raspberry Pi to act as the MQTT broker for the thermostat. First, I used ssh to connect to the Pi and
-                  give it a static IP so that my routers DHCP does not change it. This ensures all devices on the MQTT network always find
-                  the broker. Then I downloaded a MQTT broker onto the Pi and configured it to start up automatically on boot. After some testing
-                  with a MQTT client and the thermostat I verified it was working correctly. Next steps are to set up a SQL server on the Pi to log 
-                  data and to set up a python flask powered webserver for displaying the data.
-                </p>
+                    Finally I started to play around with the Flask framework in Python for building a website for the thermostat. The stack for this project is already
+                    bigger than I thought it would get and there is still lots to do!
+                  </p>
+                </div>
+                <div class="row-lg-12">
+                  <strong>Power Saving Firmware Release - May 12, 2021</strong>
+                  <br>
+                  <p>I finally finished a new version of firmware to run the ESP8266 microcontroller. Here are some of the features I use to improve power efficiency:
+                  </p>
+                  <ul>
+                    <li>Not using a DHCP connection and using a static IP instead. This allows the ESP8266 to connect to WiFi quicker.</li>
+                    <li>Stopping the default functionality of writing connection details to flash memory. This saves 1.2 seconds.</li>
+                    <li>Storing the channel number (BSSID) so the ESP8266 does not need to scan for a network. This is done by saving the data in a struct
+                      and saving the data into RTC memory. Then on connection it checks if the data is correct and attempts to connect. If after 100 tries
+                      with no connection it will not use the stored BSSID data and scan. If after 600 tries the chip will go back into deep sleep.</li>
+                    <li>Only turning WiFi radio when I need to. This is just long enough to transmit current temperature data and listen for any incoming messages.</li>
+                    <li>When waking from deep sleep, I bypassed the default setting and keep the WiFi radio shut down until I need it to be on.</li>
+                  </ul>
+                  <p>Unfortunately I did not benchmark the power use before the update to verify my new design, however moving forward power usage and battery
+                    life will be tracked for future improvements.</p>
+                </div>
+                <div class="row-lg-12">
+                  <strong>Started up the Raspberry Pi - May 6, 2021</strong>
+                  <br>
+                  <p>Today I set up a Raspberry Pi to act as the MQTT broker for the thermostat. First, I used ssh to connect to the Pi and
+                    give it a static IP so that my routers DHCP does not change it. This ensures all devices on the MQTT network always find
+                    the broker. Then I downloaded a MQTT broker onto the Pi and configured it to start up automatically on boot. After some testing
+                    with a MQTT client and the thermostat I verified it was working correctly. Next steps are to set up a SQL server on the Pi to log 
+                    data and to set up a python flask powered webserver for displaying the data.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div> <!-- End of Container-->
-    </section><!-- End Portfolio Details Section -->
+        </section>
+      </section><!-- End Portfolio Details Section -->
+    <!-- End of Container-->
+    </div>
   </main><!-- End #main -->
 
   <div id="preloader"></div>
