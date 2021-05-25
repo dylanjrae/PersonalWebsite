@@ -74,7 +74,7 @@
     </div>
   </header><!-- End Header -->
 
-  <div class="intro intro-single route bg-image" style="background-image: url(assets/img/heroo-bg.jpg)">
+  <!-- <div class="intro intro-single route bg-image" style="background-image: url(assets/img/heroo-bg.jpg)"> -->
     <!-- <div class="overlay-mf"></div> -->
     <!-- <div class="intro-content display-table">
       <div class="table-cell">
@@ -141,7 +141,7 @@
               <ul>
                 <li><strong>Furnace Type</strong>: Two-wire Systems</li>
                 <li><strong>Microprocessor</strong>: ESP8266</li>
-                <li><strong>Network Protocol</strong>: MQTT</li>
+                <li><strong>Network Protocol</strong>: MQTT/HTTP</li>
                 <li><strong>App Compatibility</strong>: Android (iOS coming soon)</li>
                 <li><strong>Code Repository</strong>: <a href="https://github.com/djohnjames/SmartThermostat" target="_blank" rel="noopener noreferrer"> <i class="bi bi-github" style="font-size: 1rem;"></i></a></li>
               </ul>
@@ -341,8 +341,8 @@
                     was also installed and I played around with some of the features of this tool. <strong>Next I would like to build some sort of API that can be used by smart home
                     devices (Google Home/Amazon Alexa), mobile apps (iOS/Android), and websites to view the temperature data, set schedules, and set new temperatures.</strong>
                     <br><br>
-                    I also wrote a Python program that interfaces with the MQTT broker. The script receives the following data HERE every 
-                    XX secs from the thermostat and writes it into a MySQL database for processing to be handeled by different back-end program., 
+                    I also wrote a Python program that interfaces with the MQTT broker. The script receives the data packet "currentTemp/setTemp/heating/battery" every 
+                    30 secs from the thermostat and writes it into a MySQL database for processing to be handeled by different back-end program., 
                     and controls the thermostat by sending ON or OFF signals. Incase the connection breaks(communication error), the 
                     ESP also has the capability to control the thermostat to meet the set temperature onboard. 
                     <br><br>
@@ -393,7 +393,6 @@
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
@@ -406,5 +405,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>
