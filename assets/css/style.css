@@ -1074,6 +1074,12 @@ a:hover {
 
 }
 
+.portfolio-details .link {
+  color: blue;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 /*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/

@@ -334,7 +334,38 @@
               <div class="portfolio-info">
                 <h3>Updates and Progress</h3>
                 <div class="row-lg-12">
-                  <!-- update about pcb, work trying to make oit recharge, new enclosure that will have to be deisnged, pics of pcb, shoutout to aidan, etc. -->
+                  <strong>PCB Ordered and Recharging Circuit Design Progress - May 31, 2021</strong>
+                  <br>
+                  <p>
+                    I have ordered the project's first PCB, check out the render's below (not all components shown). Thanks to <a href ="https://www.linkedin.com/in/aidan-johnson/" class="link" target="_blank" rel="noopener noreferrer">Aidan Johnson</a>
+                    for his help to design it.
+                  </p>
+                  <div class="row">
+                   <div class="col-lg-4">
+                    <img src="assets/img/PCB1_topdown.png" class="img-fluid rounded b-shadow-a" alt="">
+                   </div>
+                   <div class="col-lg-4">
+                    <img src="assets/img/PCB1_isometric.png" class="img-fluid rounded b-shadow-a" alt="">
+                   </div>
+                   <div class="col-lg-4">
+                    <img src="assets/img/PCB1_bottom.png" class="img-fluid rounded b-shadow-a" alt="">
+                   </div>
+                  </div>
+                  <p>
+                    In addition to the PCB, I have been working to design a circuit that can recharge a battery back by using the furnace's control signal as a power 
+                    source. Currently, I am planning to use a <a href ="https://en.wikipedia.org/wiki/Lithium_iron_phosphate_battery" class="link" target="_blank" rel="noopener noreferrer">LiFePO<sub>4</sub></a>
+                     battery, however I am facing some difficulties. While this style has an ideal operating 
+                    voltage and discharge curve, There are no commonly available chargers for single cell versions of these batteries. There are charge management 
+                    IC chips, however these are offered as surface mount only. Before designing a PCB to use/test these IC's, I usually test components I have not used before 
+                    on a breadboard to ensure they work as I expect. The charging module as a whole will need to convert the control wires' 30VAC to ~4.5VDC for charging the 
+                    battery pack. Additionally, the module will have to ensure it does not draw to much current on the control signal or the furnace will interpret it as a ON
+                    signal.
+                    <br><br>
+                    This PCB will greatly improve reliability and the form factor. I am in the process of designing a new slim profile enclosure for the new hardware. Future efforts
+                    on hardware design will also include a custom design to support and program the ESP8266 microprocessor that will be custom built instead of using the general purpose NodeMCU.
+                  </p>
+                </div>
+                <div class="row-lg-12">
                   <strong>LAMP Server on the Raspberry Pi - May 20, 2021</strong>
                   <br>
                   <p>I have installed a LAMP server on the Pi that will act as the back-end for the thermostat. Apache is used to serve requests over HTTP/S. A MySQL
@@ -372,7 +403,8 @@
                 <div class="row-lg-12">
                   <strong>Started up the Raspberry Pi - May 6, 2021</strong>
                   <br>
-                  <p>Today I set up a Raspberry Pi to act as the MQTT broker for the thermostat. First, I used ssh to connect to the Pi and
+                  <p>
+                    I have decided to keep track of my progress here in this section. Enjoy my first entry: Today I set up a Raspberry Pi to act as the MQTT broker for the thermostat. First, I used ssh to connect to the Pi and
                     give it a static IP so that my routers DHCP does not change it. This ensures all devices on the MQTT network always find
                     the broker. Then I downloaded a MQTT broker onto the Pi and configured it to start up automatically on boot. After some testing
                     with a MQTT client and the thermostat I verified it was working correctly. Next steps are to set up a SQL server on the Pi to log 
