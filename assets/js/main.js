@@ -34,11 +34,6 @@
     el.addEventListener('scroll', listener)
   }
 
-   /**
-   * Easy on scroll event listener 
-   */
-  
-
   /**
    * Navbar links active state on scroll
    */
