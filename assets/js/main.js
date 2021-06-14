@@ -1,6 +1,8 @@
 (function() {
   "use strict";
 
+  
+  
   /**
    * Easy selector helper function
    */
@@ -104,11 +106,14 @@
     onscroll(document, toggleBacktotop)
   }
 
+  
+
   /**
    * Mobile nav toggle
    */
   on('click', '.mobile-nav-toggle', function(e) {
     select('#navbar').classList.toggle('navbar-mobile')
+    // select('#nav-placeholder').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
   })
@@ -122,6 +127,7 @@
       this.nextElementSibling.classList.toggle('dropdown-active')
     }
   }, true)
+
 
   /**
    * Scrool with ofset on links with a class name .scrollto
@@ -220,10 +226,6 @@
     });
   }
 
-  // Function for loading header and footer
-  $(function(){
-    $("#nav-placeholder").load("nav.html");
-    $("#footer-placeholder").load("footer.html");
-  });
+  
 
 })()
