@@ -90,6 +90,10 @@
                 </div>
 
                 <div class="swiper-slide">
+                  <img src="assets/img/excel-logo.png" alt="">
+                </div>
+
+                <div class="swiper-slide">
                   <img src="assets/img/RPA-UML1.png" alt="">
                 </div>
 
@@ -104,7 +108,8 @@
               <p>
                 During my internship with EECOL Electric, I was tasked with developing a program that automatically 
                 generates monthly excel reports. I was given the freedom to design the software from scratch. It is 
-                currently working well, however there are still many features I hope to add in the future.
+                currently working well and has freed up time for numerous employees. There are still many features
+                 I would like to add and I am slowly improving the software.
               </p>
             </div>
 
@@ -114,7 +119,7 @@
                 <li><strong>Company</strong>: EECOL Electric</li>
                 <li><strong>Language</strong>: Python</li>
                 <li><strong>Number of Databases</strong>: 11</li>
-                <li><strong>Reports Created every Month</strong>: 25+</li>
+                <li><strong>Reports Created Every Month</strong>: 25+</li>
                 </ul>
             </div>
           </div>
@@ -127,42 +132,44 @@
               <div class="row gy-4 justify-content-evenly">
                 <div class="col-lg-12">
                   <p>
-                    Below is the list of some of the libraries I used to complete this project:
-                  </p>
-                  
-                  <ul>
-                    <li>Pandas</li>
-                  </ul>
-                 
-                  <p>
-                    Principles of OOP followed, UML, overview of how it works, steps the program takes, other design considerations, scheduler, future features to add, why this saves so much time (run, wait, check, email) I do all that. Talk about the different types of databases it works with. Talk about how it is devloped on a virtual machine
-                    call out libraries used, pandas, nupy,xlsxwrite, jinjasql, datetime, sys, etc. Also have a future feature list
-                  </p>
+                    Below are of some of the libraries I utilized to complete this project:</p>
+                  <div class="library-list">
+                    <ul>
+                      <li>pandas</li>
+                      <li>xlsxwriter</li>
+                      <li>regex</li>
+                      <li>jinjasql</li>
+                      <li>pyodbc</li>
+                      <li>timeit</li>
+                      <li>configparser</li>
+                      <li>os</li>
+                      <li>datetime</li>
+                    </ul>
+                  </div>
                 </div>
-                
               </div>
             </div>
           </div>
 
           <div class="col-lg-9">
             <div class="portfolio-info">
-              <h3>UML Program Design</h3>
+              <h3>Software Design UML</h3>
               <div class="row gy-4 justify-content-evenly">
                 <div class="col-lg-12">
+                  <p> When designing the software for this project, I aimed to adhere to the principles of object-oriented design: 
+                    <strong>SOLID</strong>. As well, I wanted to ensure the concepts of polymorphism, encapsulation, data abstraction, 
+                    and inheritance were followed in the code. I wanted to use this methodology to ensure that whether it is I or a collaborator, future 
+                    development progress can be made as smoothly as possible. The below UML follows these concepts as well as the 
+                    principles of <strong>SOLID</strong>:
+                  </p>
                   <div class="work-box">
                     <a href="assets/img/RPA-UML.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
                       <div class="work-img">
                         <img src="assets/img/RPA-UML1.png" alt="" class="img-fluid pythonLogo">
                       </div>
                     </a>
+                  </div>
                 </div>
-                  
-                  <p>
-                    Principles of OOP followed, UML, overview of how it works, steps the program takes, other design considerations, scheduler, future features to add, why this saves so much time (run, wait, check, email) I do all that. Talk about the different types of databases it works with. Talk about how it is devloped on a virtual machine
-                    call out libraries used, pandas, nupy,xlsxwrite, jinjasql, datetime, sys, etc. Also have a future feature list
-                  </p>
-                </div>
-                
               </div>
             </div>
           </div>
@@ -175,10 +182,31 @@
         <div class="row gy-4">
           <div class="col-lg-12">
             <div class="portfolio-info">
-              <h3>Design Requirements</h3>
-              <p>Split into two columns, one for design requirements and one for library usage/dependency. Also include screenshots of reports and UML</p>
-                
+              <h3>Project Details</h3>
+              <p>
+                Prior to the development of this program, employee's at EECOL were required to manually "run" over 25 different reports. These reports
+                are Excel files that typically contain 1-12 SQL queries. These Excel files usually contain a summary tab that does calculations on the
+                data and presents it in an easy to read format. Every month, employee's would open last month's report, change the dates of the SQL queries,
+                refresh the query and verify it executed correctly, then would save the file with a new file name in the desired location. Sometimes these
+                reports would need to be distributed to other employee's via specific email address or mailing lists. Currently, the program automates nearly 
+                all of these tasks.
+                <br><br>
+                EECOL was not looking to purchase additional software to automate these tasks, so it was decided to develop our own solution. When deciding on a 
+                language to use, python was chosen due to the well documented libraries for working with Excel files such as openpyxl and xlsxwriter as well as 
+                the fact that the EECOL team had prior experience working with python for other projects. The code was written and tested on a virtual machine 
+                running Red Het Enterprise Linux.
+                <br><br>
+                Every month, a scheduler starts the program with a Controller class. The Controller has details about each report it will be working on loaded in with a .yaml file. Based
+                on how the user configured the Controller, it will run either all or a subset of the reports. Each report pulls its necessary SQL statement templates 
+                from a database that contains all of the SQL used for the reports. These templates then have the necessary date parameters inserted for the month the 
+                report is being ran for. These SQL statements are executed using QueryManager which contains all of the functions necessary for running the SQL through 
+                one of the eleven potential databases. The results of these queries are passed to a GEN_XX file which inherits from GEN and is customized for each Excel 
+                file. The GEN writes in all data to the .xlsx and applies report specific formatting. After the GEN is finished working on the Excel file, the program 
+                concludes by saving status and error info into the Excel file properties section and into a .txt file.
+                <br><br>
+                Future features I want to include with further development include auto-generated SQL date parameters, the option to have reports emailed after their creation, and an easy to use GUI.
 
+                Split into two columns, one for design requirements and one for library usage/dependency.</p>
             </div>
           </div>
         </div>
@@ -193,6 +221,7 @@
                   <br>
                   <p>
                     Update text here
+                    - first update should just be htat this site has some content, stay tuned for more info
                   </p>
               </div>
             </div>

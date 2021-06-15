@@ -1065,25 +1065,35 @@ img.img-fluid.pythonLogo {
   font-weight: 500;
 }
 
-.st-details .portfolio-details .portfolio-info p {
-  text-align: justify;
-  font-size: 14px;
-  line-height: 130%;
-}
-
-.portfolio-details .portfolio-info ul {
-  font-size: 14px;
-  line-height: 130%;
-  list-style-type: circle;
-  margin-left: 25px;
-
-}
-
 .portfolio-details .link {
   color: blue;
   text-decoration: underline;
   font-weight: bold;
 }
+
+/* For Smart therm page */
+.st-details .portfolio-details .portfolio-info p {
+  text-align: justify;
+  font-size: 14px;
+  line-height: 130%;
+}
+/* For Smart therm page */
+.portfolio-details .portfolio-info ul {
+  font-size: 14px;
+  line-height: 130%;
+  list-style-type: circle;
+  margin-left: 25px;
+}
+
+/* For RPA page */
+.portfolio-details .portfolio-info .library-list ul {
+  line-height: 200%;
+  font-size: 15px;
+  list-style-image: url('/assets/img/python-5.svg');
+  list-style-position: inside;
+}
+
+
 
 /*--------------------------------------------------------------
 # Testimonials
