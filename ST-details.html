@@ -311,11 +311,32 @@
               <div class="portfolio-info">
                 <h3>Updates and Progress</h3>
                 <div class="row-lg-12">
+                  <strong>First Version of a Simple Working Backend - June 19, 2021</strong>
+                  <br>
+                  <p>
+                    A lot of coding and recoding has been done on the backend for the web app. There is the start of an API which is used by the website 
+                    and will also be used for future mobile application development. I am trying my best to follow an API-first design philosophy. I use 
+                    Javascript with jQuery and AJAX to send GET requests to my database to retrieve thermostat data. These GET's are sent at regular 
+                    intervals to display live data for the user. There is also a form for setting a new temperature that writes the new temperature into 
+                    the database. There is no styling applied yet, but I have the static folder setup for when it is type to do some css.
+                    <br><br>
+                    I am starting to get a better feel for Flask and feel like I am making progress quicker now. I wanted to integrate my separate python 
+                    script used for managing MQTT communication with the Flask app because Flask has a builtin MQTT plugin. Unfortunately, the Flask plugins 
+                    are not as reliable as I would hope. I was able to get it integrated and working properly in a testing environment, but as soon as I 
+                    deploy to production on Apache, the MQTT functionality stops. I found others online who are facing the same problem and there is no known 
+                    solution. I also had some problems setting MQTT configuration parameters in the CONFIG file, which also turns out to be a known issue. 
+                    Flask also has a builtin plugin for MySQL, however using this plugin with MQTT brought about some other problems that others online had 
+                    and were not able to resolve so I reverted back to using the standard mysql.connector. I now need to decide if I want to go back to having 
+                    MQTT management separate or continue to troubleshoot so it works on a production server.
+                    <br><br>
+                  </p>
+                </div>                
+                <div class="row-lg-12">
                   <strong>The Beginning of a Backend - June 11, 2021</strong>
                   <br>
                   <p>
                     I have been busy with work and completing my spring semester at school so progress has slowed. I started the develop the back-end for 
-                    the thermostat that will act as an API as well as manage html files for the website. I am currently using FLask to do this, however 
+                    the thermostat that will act as an API as well as manage html files for the website. I am currently using Flask to do this, however 
                     may look at other frameworks in the future. I was able to get some test sites working with Flask and am now working on integrating 
                     my Flask code with Apache. I am having some problems with the .wsgi config file, but a short amount of time troubleshooting should 
                     be sufficient to get them working. After this it is time to start adding some serious functionality!
