@@ -1,5 +1,5 @@
 
-setTimeout(func, 2000);
+setTimeout(func, 500);
 
 function func() {
     /**
