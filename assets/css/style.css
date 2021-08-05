@@ -818,6 +818,10 @@ a:hover {
   margin-left: 10px;
 }
 
+.education-mf .subtext {
+  font-size: 14px;
+}
+
 @media (min-width: 767px) {
   .about-mf .box-pl2 {
     margin-top: 3rem;
