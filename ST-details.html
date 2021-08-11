@@ -332,6 +332,32 @@
                 <h3>Updates and Progress</h3>
 
                 <div class="row-lg-12">
+                  <strong>Second Chart and Nested Asynchronous Data Retrievals - August 9, 2021</strong>
+                  <br>
+                  <p>
+                    I have added a second chart that allows the user to display the last day, week, or month of temperature data. Creating this graph was much 
+                    harder than I initially expected, and the challenges arose from the asynchronous and unpredictable nature of ajax calls. Because ajax calls 
+                    are asynchronous, it is poor practice to count on the data being returned. Instead you should only call functions from within an ajax call.
+                    The below photo is a flow chart showing the progression and stages of an ajax call: <br>
+                  </p>
+                    <div class="row justify-content-center">
+                      <div class="col-lg-12 col-xl-12">
+                        <img src="assets/img/ajax_flowchart.png" class="img-fluid rounded b-shadow-a" alt="">
+                      </div>
+                    </div>
+                    <br>
+                    <p>
+                      My solution was to use one function that uses 3 nested ajax calls to retrieve all three data sets necessary for the graph. After the 
+                      first call is complete the graph is constructed with the default data. I then use simple javascript to toggle between the 3 graph views once all the ajax 
+                      calls have returned their data sets. I had to ensure I was careful that the right code was executed at the right time by placing the code in the right stage of the ajax call.
+                      <br><br>
+                      Some fo the final features I want to finish before I move onto a new project are temperature scheduling with preheating, https functionality, a login to 
+                      protect the set temperature function, and a simple page for API details.
+                    </p>
+                    <br>
+                </div>
+
+                <div class="row-lg-12">
                   <strong>API Feature and First Chart - August 1, 2021</strong>
                   <br>
                   <p>
