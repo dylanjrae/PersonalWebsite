@@ -101,6 +101,10 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
+                  <img src="assets/img/smartTherm-web-preview-lg.png" alt="">
+                </div>
+
+                <div class="swiper-slide">
                   <img src="assets/img/enclosure.jpg" alt="">
                 </div>
 
@@ -330,6 +334,45 @@
             <div class="col-lg-12">
               <div class="portfolio-info">
                 <h3>Updates and Progress</h3>
+
+                <div class="row-lg-12">
+                  <strong>HTTPS, Set Temperature History, and Login Functionality - August 15, 2021</strong>
+                  <br>
+                  <p>
+                    I have added three major features to the thermostats website:
+                    <ol>
+                      <ul><strong>1. HTTPS Support: </strong>I finally have proper https support working for the website. The main tasks required to make this work were opening port 443 
+                        on my router, configuring Apache with the correct certificates and keys, and redirecting http traffic on port 80 to port 443 for https. Configuring Apache 
+                        with the correct keys was quite difficult for me, and I learned that browsers have many safeguards in place to ensure a https connection is safe and 
+                        secure. I had to ensure the origin of my key and certificates matched information provided by my DNS provider and was able to do this by generated 
+                        certificates from their website.</ul> <br>
+
+                      <ul><strong>2. Temperature Setting History: </strong> This data was originally going to be displayed with a graph, but I later decided I could better provide 
+                        that data as a table view, and I would get extra practice working with tables in html. I added a new end-point to the back-end for retrieving set temperature 
+                        records between a specified date and time range. From here, they are sent to the browser upon receipt of an ajax request. The browser then runs javascript that 
+                        reads the result and inserts it into the pre-made table. For viewing. The table is dynamic so spacing will adjust and scroll bars will automatically appear when needed.</ul> <br>
+
+                      <ul><strong>3. Login Functionality: </strong>As this is a public facing website that is open to the internet, I wanted to start protecting certain features available in 
+                        the site. Implementing a proper and safe login feature required extensive development on both the back and front-end. In the back-end, I used flask 
+                        extensions and libraries such as flask_login, flask_sqlalchemy, flask_wtf, werkzeug.security, and wtforms. User's account data is stored in the MySQL 
+                        database and is managed in the Flask code with SQLAlchemy. To protect user's passwords, I hash the passwords with a SHA256 algorithm before storing them 
+                        to the MySQL database. When they submit a username and password for logging in, I use the werkzeug.security library to compare the hash's and verify a 
+                        user's login credentials. From here I use flask_login to log the user in to keep track of their sessions. The login form has a remember me function so 
+                        that user's do not have to log in repeatedly. Now that a user is logged in and I can keep track of their session, I customize the html templates before 
+                        sending back to the browser for a customized user-experience. In addition, I am able to protect the functionality of the set temperature form unless the 
+                        user is logged in. If the user is not logged in and they try to set the temperature, they will instead be prompted to log in. A current security hole is 
+                        that the login form could be spammed and submitted repeatably, and in the future I will address this risk.</ul>
+                    </ol>
+                    <p>
+                    In addition to these features, I have been doing lots of reading about cloud deployment to a service such as AWS. The steps required look totally doable, and 
+                    there would be some clear benefits to moving off the Raspberry Pi and into the cloud. At this time however, I am still early in development and will revisit cloud 
+                    deployment in the future. My next big sprint will be introducing scheduling capabilities. This feature will have exciting opportunities for machine learning applications 
+                    to best predict the preheating start time. I am also planning on deleting unused css code and reorganizing the Flask code.
+                    <br>
+                  </p>
+                    
+                    <br>
+                </div>
 
                 <div class="row-lg-12">
                   <strong>Second Chart and Nested Asynchronous Data Retrievals - August 9, 2021</strong>
