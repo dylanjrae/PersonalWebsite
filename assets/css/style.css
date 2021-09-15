@@ -999,6 +999,15 @@ img.img-fluid.projectPhoto {
   padding-bottom: 60px;
 }
 
+img.img-fluid.projectPhotoSR {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.update-title {
+  font-size: 1.3rem;
+}
+
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
