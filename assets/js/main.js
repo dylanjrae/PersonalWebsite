@@ -184,13 +184,13 @@
   });
 
   /**
-   * Testimonials slider
+   * Projects slider
    */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
+  new Swiper('.projects-slider', {
+    speed: 3000,
     loop: true,
     autoplay: {
-      delay: 5000,
+      delay: 6000,
       disableOnInteraction: false
     },
     slidesPerView: 'auto',
@@ -198,7 +198,11 @@
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true
-    }
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
 
   /**
@@ -215,7 +219,11 @@
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true
-    }
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
 
   /**
