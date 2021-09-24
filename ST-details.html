@@ -182,6 +182,32 @@
             <div class="col-lg-12">
               <div class="portfolio-info">
                 <h3>Updates and Progress</h3>
+                
+                <div class="row-lg-12">
+                  <span class="update-title"> <strong>Manufactured PCB's and Redesigned Back-End - September 24, 2021</strong></span>
+                  <br>
+                  <p>
+                    I made progress in a couple areas: 
+                    <ol>
+                      <ul><strong>1. Finished PCB v1: </strong>Due to delays receiving parts and problems getting access to a soldering workbench, finishing v1 of the PCB's 
+                        took longer than expected. They have been fully tested and work as expected, however one major problem was found. The temperature sensor is easily 
+                        influenced by changes in temperature to the PCB substrate because it is not sufficiently thermally isolated. v2 of the PCB will incorporate changes 
+                        to resolve this issue, but in the meantime I am going to experiment with some options to see what works best. Pictures of the finished product coming 
+                        soon!</ul> <br>
+
+                      <ul><strong>2. Back-end support for multiple devices: </strong> I started by redesigning the database to include new tables for "Homes" and "devices". 
+                        Each user is assigned a home, and each home records a list of devices in that home. This way, when a user logs into their page, they are shown only 
+                        the data that is obtained from their home. Currently the device types supported are thermostats (temperature logger and temperature controller) as 
+                        well as temperature loggers (for recording temperature at different spots in the home). As part of this update, I also updated several API endpoints 
+                        to accommodate these changes to the database and still work as expected. Next I need to do some front-end work to seamlessly display a "house" view with 
+                        all devices registered.
+                      </ul>
+                    </ol>
+                  </p>
+                    <br>
+                </div>
+
+
 
                 <div class="row-lg-12">
                   <span class="update-title"> <strong>Navbar Improvements and Enhanced Navbar Functionality - August 18, 2021</strong></span>
