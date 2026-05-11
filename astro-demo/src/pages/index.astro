@@ -1,0 +1,114 @@
+---
+import '../styles/global.css';
+
+const focusAreas = [
+  ['Data infrastructure', 'Building reliable systems for high-volume blockchain and application data.'],
+  ['Automation', 'Turning repetitive workflows into durable tools, scripts, and services.'],
+  ['Product-minded engineering', 'Bridging business context, technical tradeoffs, and useful shipped software.'],
+  ['Web3 systems', 'Practical experience around crypto data, decentralized infrastructure, and developer tooling.']
+];
+
+const roles = [
+  ['Current', 'Software Engineer, Covalent', 'Working on data infrastructure for decentralized technologies, with emphasis on scalable backend systems and useful developer-facing data products.'],
+  ['Earlier', 'Engineering + finance background', 'Dual degrees in electrical engineering and finance, with past work spanning field engineering, strategy, research, and startup building.']
+];
+
+const skills = ['Python', 'Go', 'TypeScript', 'Java', 'SQL', 'Postgres', 'ClickHouse', 'Data pipelines', 'APIs', 'Automation', 'Web3', 'Financial analysis'];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dylan Rae — Software Engineer</title>
+    <meta name="description" content="Dylan Rae is a software engineer focused on data infrastructure, automation, and practical tools." />
+  </head>
+  <body>
+    <div class="site-shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/demo/">Dylan Rae</a>
+        <div class="nav-links">
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <header class="hero">
+        <div class="eyebrow">Software engineer · builder · systems thinker</div>
+        <h1>I build practical systems for messy data, automation, and the web.</h1>
+        <p class="lede">I’m Dylan Rae, a software engineer with an engineering and finance background. I’m interested in infrastructure, useful tools, and the places where technical systems meet real business problems.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="mailto:dylan@dylanrae.ca">Get in touch</a>
+          <a class="button" href="https://github.com/dylanjrae">GitHub</a>
+          <a class="button" href="https://www.linkedin.com/in/dylan-rae/">LinkedIn</a>
+        </div>
+      </header>
+
+      <section id="work" class="grid">
+        <div>
+          <div class="section-label">Selected focus</div>
+        </div>
+        <div>
+          <h2>Less project museum. More current signal.</h2>
+          <div class="card-grid">
+            {focusAreas.map(([title, description]) => (
+              <article class="card">
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="grid">
+        <div>
+          <div class="section-label">Experience</div>
+        </div>
+        <div class="timeline">
+          {roles.map(([period, title, description]) => (
+            <article class="role">
+              <time>{period}</time>
+              <div>
+                <h3>{title}</h3>
+                <p class="muted">{description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="grid">
+        <div>
+          <div class="section-label">Toolkit</div>
+        </div>
+        <div>
+          <h2>Comfortable across backend, data, and product-shaped problems.</h2>
+          <div class="tags">
+            {skills.map((skill) => <span class="tag">{skill}</span>)}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="grid">
+        <div>
+          <div class="section-label">Contact</div>
+        </div>
+        <div>
+          <h2>Want to compare notes or build something useful?</h2>
+          <p class="lede">Reach me by email, GitHub, or LinkedIn. This page is intentionally lightweight — a sharper résumé-style home base rather than a full portfolio archive.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:dylan@dylanrae.ca">dylan@dylanrae.ca</a>
+            <a class="button" href="https://github.com/dylanjrae">github.com/dylanjrae</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© {new Date().getFullYear()} Dylan Rae</span>
+        <span>Prototype Astro demo route</span>
+      </footer>
+    </div>
+  </body>
+</html>
